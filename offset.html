@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>offset</title>
+  <style type="text/css">
+    html, body {
+      margin: 20;
+      padding: 0;
+    }
+    #parent {
+      position: relative;
+      height: 300px;
+      width: 300px;
+      border: 10px solid #333;
+      padding: 10px;
+    }
+    #self {
+      width: 100px;
+      height: 100px;
+      border: 5px solid #999;
+      padding: 5px;
+      overflow: auto;
+    }
+    #son {
+      width: 200px;
+      height: 200px;
+    }
+    #info {
+      width: 300px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div id="parent">
+    <div id="self">
+      <div id="son"></div>
+    </div>
+  </div>
+  <div id="info"></div>
+  <script type="text/javascript">
+    let parent = document.getElementById('parent')
+    let self = document.getElementById('self')
+    let son = document.getElementById('son')
+    let info = document.getElementById('info')
+    info.innerHTML = `
+      <div>offsetParent: ${self.offsetParent.id}<div>
+      <div>offsetTop: ${self.offsetTop}<div>
+      <div>offsetLeft: ${self.offsetLeft}<div>
+      <div>offsetHeight: ${self.offsetHeight}<div>
+      <div>offsetWidth: ${self.offsetWidth}<div>
+      <div>clientWidth: ${self.clientWidth}<div>
+      <div>clientHeight: ${self.clientHeight}<div>
+      <div>scrollHeight: ${self.scrollHeight}<div>
+      <div>scrollWidth: ${self.scrollWidth}<div>
+    `
+  </script>
+</body>
+</html>
