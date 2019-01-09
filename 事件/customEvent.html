@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<style type="text/css">
+  .content {
+    border: 1px solid #333;
+    height: 200px;
+  }
+  .button {
+    height: 40px;
+    border: 1px solid #333;
+  }
+</style>
+<body>
+  <div class="content"></div>
+  <div class="box">
+    <button class="button">点击添加</button>
+  </div>
+  <script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function () {
+      let btn = document.querySelector('.button')
+      let content = document.querySelector('.content')
+      let box = document.querySelector('.box')
+      let customEvent = document.createEvent('CustomEvent')
+      customEvent.initCustomEvent('addContent', true, false, new Date())
+      let mouseEvent = document.createEvent('MouseEvent')
+      mouseEvent.initMouseEvent('click', true, false)
+      btn.addEventListener('click', function (e) {
+        this.dispatchEvent(customEvent)
+      })
+      box.addEventListener('addContent', function (e) {
+        content.innerText += e.detail
+      })
+      btn.dispatchEvent(customEvent)
+      btn.dispatchEvent(mouseEvent)
+    })
+  </script>
+</body>
+</html>
