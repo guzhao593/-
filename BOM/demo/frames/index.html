@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>index</title>
+</head>
+<body>
+  <div class="container">
+    <iframe name="topFrame" src="./topFrame.html" style="width: 100%;height: 500px;">
+    </iframe>
+    <iframe name="leftFrame" src="./leftFrame.html" style="width: 49%;height: 200px;"></iframe>
+    <iframe name="rightFrame" src="./rightFrame.html" style="width: 50%;height: 200px;"></iframe>
+  </div>
+  <div class="info"></div>
+  <script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function () {
+      let info = document.querySelector('.info')
+      info.innerHTML = `
+        当前页面为最外层页面：<br/>
+        1. window === window.top === window.self: ${window === window.top && window === window.self} <br/>
+        2. window.name: ${window.name} <br/>
+        2. window.frames.lenght: ${window.frames.length} <br/>
+        3. window.frames[0].name: ${window.frames[0].name} <br/>
+        4. window.frames[0] === window.frames.topFrame: ${window.frames[0] === window.frames.topFrame} <br/>
+        5. window.frames[0].top === window: ${window.frames[0].top === window}
+      `
+    }, false)
+  </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>leafFrame</title>
+</head>
+<body>
+  <div>leafFrame</div>
+  <div class="info"></div>
+  <script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function () {
+      let info = document.querySelector('.info')
+      info.innerHTML = `
+        当前页面为最外层页面：<br/>
+        1. window ===window.self: ${window === window.self} <br/>
+        1. window ===window.top: ${window === window.top} <br/>
+        1. window.parent === window.top: ${window.parent === window.top} <br/>
+        1. window.parent.name: topFrame <br/>
+        1. window.parent.parent === window.top: ${window.parent.parent === window.top} <br/>
+        2. window.name: ${window.name} <br/>
+        2. window.frames.lenght: ${window.frames.length} <br/>
+      `
+    }, false)
+  </script>
+</body>
+</html>
