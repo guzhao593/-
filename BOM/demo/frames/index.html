@@ -8,7 +8,7 @@
 </head>
 <body>
   <div class="container">
-    <iframe name="topFrame" src="./topFrame.html" style="width: 100%;height: 500px;">
+    <iframe name="topFrame" src="./topFrame.html" style="width: 100%;height: 500px;" id="topFrame">
     </iframe>
     <iframe name="leftFrame" src="./leftFrame.html" style="width: 49%;height: 200px;"></iframe>
     <iframe name="rightFrame" src="./rightFrame.html" style="width: 50%;height: 200px;"></iframe>
@@ -24,7 +24,8 @@
         2. window.frames.lenght: ${window.frames.length} <br/>
         3. window.frames[0].name: ${window.frames[0].name} <br/>
         4. window.frames[0] === window.frames.topFrame: ${window.frames[0] === window.frames.topFrame} <br/>
-        5. window.frames[0].top === window: ${window.frames[0].top === window}
+        5. window.frames[0].top === window: ${window.frames[0].top === window} <br/>
+        6. topFrame.document: document.querySelector('[name=topFrame]').contentDocument
       `
     }, false)
   </script>
